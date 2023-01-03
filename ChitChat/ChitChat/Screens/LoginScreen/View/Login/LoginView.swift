@@ -40,12 +40,9 @@ final class LoginView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-   
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
        
-        
         self.backgroundColor = UIColor.systemGray6
         layoutSet()
         emailTextField.textContentType = .emailAddress
@@ -54,15 +51,11 @@ final class LoginView: UIView {
         passwordTextField.textContentType = .password
         emailTextField.errorLabel.text = ""
         passwordTextField.errorLabel.text = ""
+
+
+       
         
-//        let stackView = UIStackView(arrangedSubviews: [emailTextField,
-//                                                      passwordTextField,
-//                                                      signInButton])
-//
-//        stackView.axis = .vertical
-//        stackView.spacing = 16
-//        stackView.distribution = .fillEqually
-//
+
         
     }
     
@@ -71,11 +64,25 @@ final class LoginView: UIView {
     }
    
     func layoutSet() {
+        
+        let stackView = UIStackView(arrangedSubviews: [emailTextField,
+                                                      passwordTextField,
+                                                      signInButton])
+        
+        stackView.axis = .vertical
+        stackView.spacing = 52
+        stackView.distribution = .fillEqually
+        stackView.alignment = .center
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
         addSubview(imageView)
-        addSubview(emailTextField)
-        addSubview(passwordTextField)
-        addSubview(signInButton)
+//        addSubview(emailTextField)
+//        addSubview(passwordTextField)
+//        addSubview(signInButton)
         addSubview(dontHaveAccountButton)
+        addSubview(stackView)
+        
+        
                 NSLayoutConstraint.activate([
             
             imageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -85,22 +92,30 @@ final class LoginView: UIView {
             imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
             
             
-            emailTextField.topAnchor.constraint(equalTo:imageView.bottomAnchor, constant: 48),
-            emailTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            emailTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            stackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 32),
+            stackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            stackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             emailTextField.heightAnchor.constraint(equalToConstant: 50),
-            
-            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 56),
-            passwordTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            passwordTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 50),
-            
-            
-            signInButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 56),
-            signInButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            signInButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/3),
-            signInButton.heightAnchor.constraint(equalToConstant: 50),
-            
+            emailTextField.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -32),
+            passwordTextField.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -32),
+            signInButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/2),
+           
+//            emailTextField.topAnchor.constraint(equalTo:imageView.bottomAnchor, constant: 48),
+//            emailTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+//            emailTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+//            emailTextField.heightAnchor.constraint(equalToConstant: 50),
+//
+//            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 56),
+//            passwordTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+//            passwordTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+//            passwordTextField.heightAnchor.constraint(equalToConstant: 50),
+//
+//
+//            signInButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 56),
+//            signInButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+//            signInButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/3),
+//            signInButton.heightAnchor.constraint(equalToConstant: 50),
+//
             
             
             dontHaveAccountButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),

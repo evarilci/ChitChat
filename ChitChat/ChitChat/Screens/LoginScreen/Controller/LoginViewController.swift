@@ -14,8 +14,8 @@ final class LoginViewController: UIViewController {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
         
-        addGradientWith([UIColor.systemGray6.cgColor, UIColor.systemIndigo.cgColor], in: [0,1])
         view = mainView
         
        
