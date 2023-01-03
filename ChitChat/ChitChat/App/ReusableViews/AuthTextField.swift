@@ -8,7 +8,8 @@
 import UIKit
 
 class AuthTextField: UITextField {
-    
+   
+    let errorLabel = UILabel()
     
     init(frame: CGRect = .zero, header: String, placeholder: String, backgroundColor: UIColor, error: String) {
         super.init(frame: frame)
@@ -24,9 +25,9 @@ class AuthTextField: UITextField {
     private func setAuthTextField(header: String ,placeholder: String, color: UIColor, error: String) {
         self.backgroundColor = color
         self.layer.cornerRadius = 12
-        self.layer.borderWidth = 0.0
+        self.layer.borderWidth = 1.0
        
-        self.layer.borderColor = UIColor.systemRed.cgColor
+        self.layer.borderColor = UIColor.systemGreen.cgColor
         self.placeholder = placeholder
         self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: self.frame.height))
         self.leftViewMode = .always
@@ -41,7 +42,7 @@ class AuthTextField: UITextField {
         headerLabel.font = UIFont(name: "Helvetica", size: 20)
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         
-         let errorLabel = UILabel()
+        
         errorLabel.text = error
         errorLabel.textColor = UIColor.systemRed
         errorLabel.textAlignment = .left
@@ -54,9 +55,9 @@ class AuthTextField: UITextField {
           
             
 
-            headerLabel.bottomAnchor.constraint(equalTo: self.topAnchor, constant: -8),
+            headerLabel.bottomAnchor.constraint(equalTo: self.topAnchor),
             headerLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4),
-            headerLabel.widthAnchor.constraint(equalToConstant: 75),
+            headerLabel.widthAnchor.constraint(equalToConstant: 125),
             headerLabel.heightAnchor.constraint(equalToConstant: 30),
 
          
