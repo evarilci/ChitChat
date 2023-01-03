@@ -11,9 +11,11 @@
 		E50389052963528200B3773E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50389042963528200B3773E /* LoginViewController.swift */; };
 		E503890A2963528600B3773E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E50389092963528600B3773E /* Assets.xcassets */; };
 		E503890D2963528600B3773E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E503890B2963528600B3773E /* LaunchScreen.storyboard */; };
+		E543206F2964CE4C00B5733B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543206E2964CE4C00B5733B /* SignUpView.swift */; };
 		E578A2052963580400BDB23B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578A2042963580400BDB23B /* UIViewController+Extension.swift */; };
 		E578A208296362EC00BDB23B /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578A207296362EC00BDB23B /* AuthTextField.swift */; };
 		E578A20A29638FCA00BDB23B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578A20929638FCA00BDB23B /* LoginView.swift */; };
+		E5D03D4E2964E33600DE6BAD /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D03D4D2964E33600DE6BAD /* UIButton+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,9 +25,11 @@
 		E50389092963528600B3773E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E503890C2963528600B3773E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E503890E2963528600B3773E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E543206E2964CE4C00B5733B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E578A2042963580400BDB23B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		E578A207296362EC00BDB23B /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		E578A20929638FCA00BDB23B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E5D03D4D2964E33600DE6BAD /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,22 @@
 				E578A1F9296354EB00BDB23B /* Screens */,
 			);
 			path = ChitChat;
+			sourceTree = "<group>";
+		};
+		E543206C2964CE2100B5733B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E578A20929638FCA00BDB23B /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E543206D2964CE2D00B5733B /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				E543206E2964CE4C00B5733B /* SignUpView.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		E578A1F8296354E100BDB23B /* App */ = {
@@ -131,7 +151,8 @@
 		E578A1FF2963553B00BDB23B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E578A20929638FCA00BDB23B /* LoginView.swift */,
+				E543206D2964CE2D00B5733B /* SignUp */,
+				E543206C2964CE2100B5733B /* Login */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				E578A2042963580400BDB23B /* UIViewController+Extension.swift */,
+				E5D03D4D2964E33600DE6BAD /* UIButton+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -245,10 +267,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E578A2052963580400BDB23B /* UIViewController+Extension.swift in Sources */,
+				E543206F2964CE4C00B5733B /* SignUpView.swift in Sources */,
 				E578A208296362EC00BDB23B /* AuthTextField.swift in Sources */,
 				E50389052963528200B3773E /* LoginViewController.swift in Sources */,
 				E578A20A29638FCA00BDB23B /* LoginView.swift in Sources */,
 				E50389012963528200B3773E /* AppDelegate.swift in Sources */,
+				E5D03D4E2964E33600DE6BAD /* UIButton+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
