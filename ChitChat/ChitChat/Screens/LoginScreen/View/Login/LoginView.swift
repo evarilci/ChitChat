@@ -9,6 +9,8 @@ import UIKit
 
 final class LoginView: UIView {
     
+    var action : (() -> Void)? = nil
+    
     private let signInButton: UIButton = {
         let button = UIButton()
         button.setBackgroundColor(UIColor.systemGreen, for: .normal)
@@ -42,27 +44,25 @@ final class LoginView: UIView {
     }()
     override init(frame: CGRect) {
         super.init(frame: frame)
-       
+        dontHaveAccountButton.addTarget(self, action: #selector(signUpTapped), for: .touchUpInside)
         self.backgroundColor = UIColor.systemGray6
         layoutSet()
         emailTextField.textContentType = .emailAddress
-        emailTextField.autocorrectionType = .no
-        emailTextField.autocapitalizationType = .none
+//        emailTextField.autocorrectionType = .no
+//        emailTextField.autocapitalizationType = .none
         passwordTextField.textContentType = .password
         emailTextField.errorLabel.text = ""
         passwordTextField.errorLabel.text = ""
-
-
-       
-        
-
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
    
+    @objc func signUpTapped() {
+        action?()
+    }
+    
     func layoutSet() {
         
         let stackView = UIStackView(arrangedSubviews: [emailTextField,
@@ -76,13 +76,8 @@ final class LoginView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(imageView)
-//        addSubview(emailTextField)
-//        addSubview(passwordTextField)
-//        addSubview(signInButton)
         addSubview(dontHaveAccountButton)
         addSubview(stackView)
-        
-        
                 NSLayoutConstraint.activate([
             
             imageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -95,29 +90,11 @@ final class LoginView: UIView {
             stackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 32),
             stackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             stackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            emailTextField.heightAnchor.constraint(equalToConstant: 50),
+            emailTextField.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 1/16),
             emailTextField.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -32),
             passwordTextField.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -32),
             signInButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/2),
            
-//            emailTextField.topAnchor.constraint(equalTo:imageView.bottomAnchor, constant: 48),
-//            emailTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-//            emailTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-//            emailTextField.heightAnchor.constraint(equalToConstant: 50),
-//
-//            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 56),
-//            passwordTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-//            passwordTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-//            passwordTextField.heightAnchor.constraint(equalToConstant: 50),
-//
-//
-//            signInButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 56),
-//            signInButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-//            signInButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/3),
-//            signInButton.heightAnchor.constraint(equalToConstant: 50),
-//
-            
-            
             dontHaveAccountButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),
             dontHaveAccountButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             dontHaveAccountButton.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -32),
