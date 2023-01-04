@@ -12,6 +12,7 @@
 		E500B61E29662FE600DCCB9F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E500B61D29662FE600DCCB9F /* FirebaseAuth */; };
 		E500B62029662FE600DCCB9F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E500B61F29662FE600DCCB9F /* FirebaseFirestore */; };
 		E500B62229662FE600DCCB9F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E500B62129662FE600DCCB9F /* FirebaseStorage */; };
+		E500B6252966331D00DCCB9F /* FirebaseAccesible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500B6242966331D00DCCB9F /* FirebaseAccesible.swift */; };
 		E50389012963528200B3773E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50389002963528200B3773E /* AppDelegate.swift */; };
 		E50389052963528200B3773E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50389042963528200B3773E /* LoginViewController.swift */; };
 		E503890A2963528600B3773E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E50389092963528600B3773E /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		E500B61829662EF700DCCB9F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E500B6242966331D00DCCB9F /* FirebaseAccesible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAccesible.swift; sourceTree = "<group>"; };
 		E50388FD2963528200B3773E /* ChitChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChitChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50389002963528200B3773E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E50389042963528200B3773E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E500B6232966330600DCCB9F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E500B6242966331D00DCCB9F /* FirebaseAccesible.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		E50388F42963528200B3773E = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +107,7 @@
 		E578A1F8296354E100BDB23B /* App */ = {
 			isa = PBXGroup;
 			children = (
+				E500B6232966330600DCCB9F /* Core */,
 				E578A206296362C000BDB23B /* ReusableViews */,
 				E578A203296357EA00BDB23B /* Extensions */,
 				E578A1FD2963551500BDB23B /* Delegates */,
@@ -293,6 +304,7 @@
 				E50389052963528200B3773E /* LoginViewController.swift in Sources */,
 				E578A20A29638FCA00BDB23B /* LoginView.swift in Sources */,
 				E50389012963528200B3773E /* AppDelegate.swift in Sources */,
+				E500B6252966331D00DCCB9F /* FirebaseAccesible.swift in Sources */,
 				E5D03D4E2964E33600DE6BAD /* UIButton+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
