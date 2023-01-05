@@ -44,7 +44,7 @@ final class LoginView: UIView {
     }()
     override init(frame: CGRect) {
         super.init(frame: frame)
-        dontHaveAccountButton.addTarget(self, action: #selector(signUpTapped), for: .touchUpInside)
+        dontHaveAccountButton.addTarget(self, action: #selector(changeView), for: .touchUpInside)
         self.backgroundColor = UIColor.systemGray6
         layoutSet()
         emailTextField.textContentType = .emailAddress
@@ -59,7 +59,7 @@ final class LoginView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
    
-    @objc func signUpTapped() {
+    @objc func changeView() {
         action?()
     }
     

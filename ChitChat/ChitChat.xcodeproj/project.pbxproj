@@ -17,6 +17,8 @@
 		E50389052963528200B3773E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50389042963528200B3773E /* LoginViewController.swift */; };
 		E503890A2963528600B3773E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E50389092963528600B3773E /* Assets.xcassets */; };
 		E503890D2963528600B3773E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E503890B2963528600B3773E /* LaunchScreen.storyboard */; };
+		E5109D2129674D6D008CB0B9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5109D2029674D6D008CB0B9 /* User.swift */; };
+		E5109D2329676DB2008CB0B9 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5109D2229676DB2008CB0B9 /* AuthViewModel.swift */; };
 		E543206F2964CE4C00B5733B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543206E2964CE4C00B5733B /* SignUpView.swift */; };
 		E578A2052963580400BDB23B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578A2042963580400BDB23B /* UIViewController+Extension.swift */; };
 		E578A208296362EC00BDB23B /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578A207296362EC00BDB23B /* AuthTextField.swift */; };
@@ -33,6 +35,8 @@
 		E50389092963528600B3773E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E503890C2963528600B3773E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E503890E2963528600B3773E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5109D2029674D6D008CB0B9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E5109D2229676DB2008CB0B9 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		E543206E2964CE4C00B5733B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E578A2042963580400BDB23B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		E578A207296362EC00BDB23B /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 		E578A2002963554100BDB23B /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				E5109D2029674D6D008CB0B9 /* User.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 		E578A2012963554700BDB23B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E5109D2229676DB2008CB0B9 /* AuthViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -298,11 +304,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5109D2329676DB2008CB0B9 /* AuthViewModel.swift in Sources */,
 				E578A2052963580400BDB23B /* UIViewController+Extension.swift in Sources */,
 				E543206F2964CE4C00B5733B /* SignUpView.swift in Sources */,
 				E578A208296362EC00BDB23B /* AuthTextField.swift in Sources */,
 				E50389052963528200B3773E /* LoginViewController.swift in Sources */,
 				E578A20A29638FCA00BDB23B /* LoginView.swift in Sources */,
+				E5109D2129674D6D008CB0B9 /* User.swift in Sources */,
 				E50389012963528200B3773E /* AppDelegate.swift in Sources */,
 				E500B6252966331D00DCCB9F /* FirebaseAccesible.swift in Sources */,
 				E5D03D4E2964E33600DE6BAD /* UIButton+Extension.swift in Sources */,

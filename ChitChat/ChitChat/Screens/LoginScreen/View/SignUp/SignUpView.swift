@@ -10,10 +10,7 @@ import UIKit
 final class SignUpView: UIView {
     
     var action1 : (() -> Void)? = nil
-    
-    
-    
-    
+    var action2 : (() -> Void)? = nil
     private let imageView : UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "message.fill")!
@@ -21,6 +18,40 @@ final class SignUpView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    
+    
+    var name: String {
+        get {
+           nameTextField.text ?? "name have not come"
+        }
+    }
+    
+    var email: String {
+        get {
+            emailTextField.text ?? "email have not come"
+        }
+    }
+    
+    var password: String {
+        get {
+            passwordTextField.text ?? "password have not come"
+        }
+    }
+    
+    
+    var phone: String {
+        get {
+            phoneTextField.text ?? "phone have not come"
+        }
+    }
+    
+    
+    var photo: String {
+        get {
+            "photo url comes here"
+        }
+    }
+    
     
     
     private let dontHaveAccountButton: UIButton = {
@@ -72,7 +103,8 @@ final class SignUpView: UIView {
         phoneTextField.errorLabel.text = ""
         passwordAgainTextField.errorLabel.text = ""
         
-        dontHaveAccountButton.addTarget(self, action: #selector(signUpTapped), for: .touchUpInside)
+        dontHaveAccountButton.addTarget(self, action: #selector(changeView), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(signUpTapped), for: .touchUpInside)
         
     }
     
@@ -80,8 +112,12 @@ final class SignUpView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func signUpTapped() {
+    @objc func changeView() {
         action1?()
+    }
+    
+    @objc func signUpTapped() {
+        action2?()
     }
     
     
