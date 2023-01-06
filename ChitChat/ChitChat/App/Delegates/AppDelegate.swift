@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseAuth
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,14 +15,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-     
-        window = UIWindow()
-        let controller = UINavigationController(rootViewController: LoginViewController())
-        window?.rootViewController = controller
-        window?.makeKeyAndVisible()
+        FirebaseApp.configure()
+ 
+        setInitialScreen()
+
         return true
     }
 
+    
+    func setInitialScreen() {
+        let user = Auth.auth().currentUser
+        if user != nil {
+            window = UIWindow()
+            let controller = TabBarViewController()
+            window?.rootViewController = controller
+            window?.makeKeyAndVisible()
+        } else {
+            window = UIWindow()
+            //let firestoreProtocol : FireStoreAccessibleProtocol = FireStoreAccesible()
+            let viewModel = authViewModel()
+            let controller = UINavigationController(rootViewController: LoginViewController(viewModel: viewModel))
+            window?.rootViewController = controller
+            window?.makeKeyAndVisible()
+        }
+        
+    }
+    
 //    // MARK: UISceneSession Lifecycle
 //
 //    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
