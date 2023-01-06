@@ -1,8 +1,8 @@
 //
-//  FirebaseAccesible.swift
+//  FirestoreKit.swift
 //  ChitChat
 //
-//  Created by Eymen Varilci on 5.01.2023.
+//  Created by Eymen Varilci on 6.01.2023.
 //
 
 import Foundation
@@ -10,29 +10,26 @@ import FirebaseFirestore
 import FirebaseStorage
 import FirebaseAuth
 
-protocol FireBaseAccessibleProtocol {
+
+protocol FireStoreAccessibleProtocol {
     func createUser(name: String, email: String, password: String, phone: String, photo: String, completion: @escaping(Result<User,Error>) -> Void)
     
     func signIn(email: String, password: String, completion: @escaping(Result<User,Error>) -> Void)
 }
 
-extension FireBaseAccessibleProtocol {
+
+
+class FireStoreAccesible: FireStoreAccessibleProtocol {
+    
     var db: Firestore {
         Firestore.firestore()
     }
-    var storage: Storage {
-        Storage.storage()
-    }
     
-    var StorageMetadata: StorageMetadata {
-        FirebaseStorage.StorageMetadata()
-    }
     var auth: Auth {
         Auth.auth()
     }
-}
-
-class FirebaseAccesible: FireBaseAccessibleProtocol {
+    
+    
     func createUser(name: String, email: String, password: String, phone: String, photo: String, completion: @escaping (Result<User,Error>) -> Void) {
         let user = User(name: name, email: email, password: password, phone: phone, photo: photo)
         DispatchQueue.main.async {
@@ -58,9 +55,11 @@ class FirebaseAccesible: FireBaseAccessibleProtocol {
     
     func signIn(email: String, password: String, completion: @escaping(Result<User,Error>) -> Void) {
         
-        auth.signIn(withEmail: email, password: password) { result, error in
+        self.auth.signIn(withEmail: email, password: password) { result, error in
             if error != nil {
                 print("sign in error occured: \(error!)")
+            } else {
+                print("signed in bro\(result?.user)")
             }
         }
         

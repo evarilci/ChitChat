@@ -9,8 +9,8 @@ import UIKit
 
 final class SignUpView: UIView {
     
-    var action1 : (() -> Void)? = nil
-    var action2 : (() -> Void)? = nil
+    var changeViewAction : (() -> Void)? = nil
+    var signUpAction : (() -> Void)? = nil
     private let imageView : UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "message.fill")!
@@ -113,11 +113,11 @@ final class SignUpView: UIView {
     }
     
     @objc func changeView() {
-        action1?()
+        changeViewAction?()
     }
     
     @objc func signUpTapped() {
-        action2?()
+        signUpAction?()
     }
     
     

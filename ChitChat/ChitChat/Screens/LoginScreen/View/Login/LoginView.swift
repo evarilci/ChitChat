@@ -9,7 +9,21 @@ import UIKit
 
 final class LoginView: UIView {
     
-    var action : (() -> Void)? = nil
+    var changeViewAction : (() -> Void)? = nil
+    var signInAction : (() -> Void)? = nil
+    
+    var email: String {
+        get {
+            emailTextField.text ?? "email have not come"
+        }
+    }
+    
+    var password: String {
+        get {
+            passwordTextField.text ?? "password have not come"
+        }
+    }
+    
     
     private let signInButton: UIButton = {
         let button = UIButton()
@@ -45,6 +59,7 @@ final class LoginView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         dontHaveAccountButton.addTarget(self, action: #selector(changeView), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(signIn), for: .touchUpInside)
         self.backgroundColor = UIColor.systemGray6
         layoutSet()
         emailTextField.textContentType = .emailAddress
@@ -60,7 +75,11 @@ final class LoginView: UIView {
     }
    
     @objc func changeView() {
-        action?()
+        changeViewAction?()
+    }
+    
+    @objc func signIn() {
+        signInAction?()
     }
     
     func layoutSet() {

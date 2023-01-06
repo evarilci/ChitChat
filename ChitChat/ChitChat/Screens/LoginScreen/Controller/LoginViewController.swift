@@ -7,7 +7,15 @@
 
 import UIKit
 
-final class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController, authViewModelDelegate {
+    func createNewUser(name: String, email: String, password: String, phone: String, photo: String) {
+        <#code#>
+    }
+    
+    func signInUser(email: String, password: String) {
+        <#code#>
+    }
+    
     // MARK: Properties
     let loginView = LoginView()
     let signUpView = SignUpView()
@@ -16,6 +24,7 @@ final class LoginViewController: UIViewController {
     init(viewModel: authViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        self.viewModel.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -32,13 +41,28 @@ final class LoginViewController: UIViewController {
       
         
         
-        signUpView.action1 = {
+        signUpView.changeViewAction = {
             self.view = self.loginView
         }
-        signUpView.action2 = {
+        signUpView.signUpAction = {
             self.viewModel.createNewUser(name: self.signUpView.name, email: self.signUpView.email, password: self.signUpView.password, phone: self.signUpView.phone, photo: self.signUpView.photo)
         }
-        loginView.action = {
+        loginView.signInAction = {
+           // self.viewModel.signInUser(email: self.loginView.email, password: self.loginView.password)
+            
+            
+            self.viewModel.signIn(email: self.loginView.email, password: self.loginView.password) { result in
+                // TODO: Navigate to mainscreen
+                switch result {
+                case.success(let user):
+                    print("ready to navigate!!!!!!!!!!!!! with \(user)")
+                case.failure(_):
+                    print("can not navigate!!!!!!!!!!")
+                }
+            }
+        }
+        
+        loginView.changeViewAction = {
             self.view = self.signUpView
          }
     }

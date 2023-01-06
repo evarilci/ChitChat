@@ -20,6 +20,7 @@
 		E5109D2129674D6D008CB0B9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5109D2029674D6D008CB0B9 /* User.swift */; };
 		E5109D2329676DB2008CB0B9 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5109D2229676DB2008CB0B9 /* AuthViewModel.swift */; };
 		E543206F2964CE4C00B5733B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543206E2964CE4C00B5733B /* SignUpView.swift */; };
+		E56E456F2968AB5E00BD30C5 /* FirestoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56E456E2968AB5E00BD30C5 /* FirestoreKit.swift */; };
 		E578A2052963580400BDB23B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578A2042963580400BDB23B /* UIViewController+Extension.swift */; };
 		E578A208296362EC00BDB23B /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578A207296362EC00BDB23B /* AuthTextField.swift */; };
 		E578A20A29638FCA00BDB23B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578A20929638FCA00BDB23B /* LoginView.swift */; };
@@ -38,6 +39,7 @@
 		E5109D2029674D6D008CB0B9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E5109D2229676DB2008CB0B9 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		E543206E2964CE4C00B5733B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		E56E456E2968AB5E00BD30C5 /* FirestoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreKit.swift; sourceTree = "<group>"; };
 		E578A2042963580400BDB23B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		E578A207296362EC00BDB23B /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		E578A20929638FCA00BDB23B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				E500B6242966331D00DCCB9F /* FirebaseAccesible.swift */,
+				E56E456E2968AB5E00BD30C5 /* FirestoreKit.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				E578A208296362EC00BDB23B /* AuthTextField.swift in Sources */,
 				E50389052963528200B3773E /* LoginViewController.swift in Sources */,
 				E578A20A29638FCA00BDB23B /* LoginView.swift in Sources */,
+				E56E456F2968AB5E00BD30C5 /* FirestoreKit.swift in Sources */,
 				E5109D2129674D6D008CB0B9 /* User.swift in Sources */,
 				E50389012963528200B3773E /* AppDelegate.swift in Sources */,
 				E500B6252966331D00DCCB9F /* FirebaseAccesible.swift in Sources */,

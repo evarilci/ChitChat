@@ -16,8 +16,8 @@ var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
      
         window = UIWindow()
-        let firebaseProtocol : FireBaseAccessibleProtocol = FirebaseAccesible()
-        let viewModel = authViewModel(firebaseAuth: firebaseProtocol)
+        let firestoreProtocol : FireStoreAccessibleProtocol = FireStoreAccesible()
+        let viewModel = authViewModel(firebaseAuth: firestoreProtocol)
         let controller = UINavigationController(rootViewController: LoginViewController(viewModel: viewModel))
         window?.rootViewController = controller
         window?.makeKeyAndVisible()
