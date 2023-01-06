@@ -47,7 +47,7 @@ final class LoginView: UIView {
 
     private let emailTextField = AuthTextField(header:"email" , placeholder: "example@mail.com", backgroundColor: UIColor.systemGray5, error: "error")
     
-    private let passwordTextField = AuthTextField(header:"password" , placeholder: "choose it wisely", backgroundColor: UIColor.systemGray5, error: "error")
+    private let passwordTextField = AuthTextField(header:"password" , placeholder: "******", backgroundColor: UIColor.systemGray5, error: "error")
   
     private let imageView : UIImageView = {
         let imageView = UIImageView()

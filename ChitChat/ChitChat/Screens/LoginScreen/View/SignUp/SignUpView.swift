@@ -34,7 +34,12 @@ final class SignUpView: UIView {
     
     var password: String {
         get {
-            passwordTextField.text ?? "password have not come"
+            if passwordTextField.text == passwordAgainTextField.text {
+               return passwordTextField.text ?? "password error"
+            } else {
+                passwordAgainTextField.errorLabel.text = "Passwords does not match"
+                return "password error"
+            }
         }
     }
     
@@ -81,9 +86,9 @@ final class SignUpView: UIView {
     private let emailTextField = AuthTextField(header:"email" , placeholder: "example@mail.com", backgroundColor: UIColor.systemGray5, error: "error")
     
     
-    private let phoneTextField = AuthTextField(header:"phone" , placeholder: "example@mail.com", backgroundColor: UIColor.systemGray5, error: "error")
+    private let phoneTextField = AuthTextField(header:"phone" , placeholder: "5553178326", backgroundColor: UIColor.systemGray5, error: "error")
     
-    private let passwordTextField = AuthTextField(header:"password" , placeholder: "choose it wisely", backgroundColor: UIColor.systemGray5, error: "error")
+    private let passwordTextField = AuthTextField(header:"password" , placeholder: "******", backgroundColor: UIColor.systemGray5, error: "error")
     
     private let passwordAgainTextField = AuthTextField(header:"password" , placeholder: "retype password", backgroundColor: UIColor.systemGray5, error: "error")
     
@@ -97,6 +102,9 @@ final class SignUpView: UIView {
         emailTextField.autocorrectionType = .no
         emailTextField.autocapitalizationType = .none
         passwordTextField.textContentType = .password
+        passwordTextField.isSecureTextEntry = true
+        passwordAgainTextField.textContentType = .password
+        passwordAgainTextField.isSecureTextEntry = true
         emailTextField.errorLabel.text = ""
         passwordTextField.errorLabel.text = ""
         nameTextField.errorLabel.text = ""

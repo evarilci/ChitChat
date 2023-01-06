@@ -30,6 +30,9 @@ final class LoginViewController: UIViewController {
         self.viewModel.delegate = self
         self.navigationController?.navigationBar.isHidden = true
         view = loginView
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        self.tabBarController?.tabBar.isHidden = true
+        
         
         // BUTTON ACTIONS
         signUpView.changeViewAction = { // change view to login
@@ -71,7 +74,9 @@ extension LoginViewController: AuthViewModelDelegate {
     }
     
     func authSucceded() {
-        print("READY TO NAVIGATE")
+        let ViewController = TabBarViewController()
+        ViewController.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(ViewController, animated: true)
     }
     
     
