@@ -7,14 +7,8 @@
 
 import UIKit
 
-final class LoginViewController: UIViewController, authViewModelDelegate {
-    func createNewUser(name: String, email: String, password: String, phone: String, photo: String) {
-        <#code#>
-    }
-    
-    func signInUser(email: String, password: String) {
-        <#code#>
-    }
+final class LoginViewController: UIViewController {
+   
     
     // MARK: Properties
     let loginView = LoginView()
@@ -24,7 +18,7 @@ final class LoginViewController: UIViewController, authViewModelDelegate {
     init(viewModel: authViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        self.viewModel.delegate = self
+        //self.viewModel.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -36,7 +30,9 @@ final class LoginViewController: UIViewController, authViewModelDelegate {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewModel.delegate = self
         self.navigationController?.navigationBar.isHidden = true
+       
      view = loginView
       
         
@@ -45,19 +41,25 @@ final class LoginViewController: UIViewController, authViewModelDelegate {
             self.view = self.loginView
         }
         signUpView.signUpAction = {
-            self.viewModel.createNewUser(name: self.signUpView.name, email: self.signUpView.email, password: self.signUpView.password, phone: self.signUpView.phone, photo: self.signUpView.photo)
+            
+            self.viewModel.createUser(name: self.signUpView.name, email: self.signUpView.email, password: self.signUpView.password, phone: self.signUpView.phone, photo: self.signUpView.photo) { result in
+                switch result {
+                case .success(_):
+                    self.authSucceded()
+                case.failure(let error):
+                    self.errorOcurred(error)
+                }
+            }
+            
         }
         loginView.signInAction = {
-           // self.viewModel.signInUser(email: self.loginView.email, password: self.loginView.password)
-            
-            
+          
             self.viewModel.signIn(email: self.loginView.email, password: self.loginView.password) { result in
-                // TODO: Navigate to mainscreen
                 switch result {
-                case.success(let user):
-                    print("ready to navigate!!!!!!!!!!!!! with \(user)")
-                case.failure(_):
-                    print("can not navigate!!!!!!!!!!")
+                case .success(_):
+                    self.authSucceded()
+                case.failure(let error):
+                    self.errorOcurred(error)
                 }
             }
         }
@@ -66,5 +68,17 @@ final class LoginViewController: UIViewController, authViewModelDelegate {
             self.view = self.signUpView
          }
     }
+}
+
+extension LoginViewController: AuthViewModelDelegate {
+    func errorOcurred(_ error: Error) {
+        print("SOME ERROR OCCURED AND CATCHED IN VC \(error)")
+    }
+    
+    func authSucceded() {
+        print("READY TO NAVIGATE")
+    }
+    
+    
 }
 

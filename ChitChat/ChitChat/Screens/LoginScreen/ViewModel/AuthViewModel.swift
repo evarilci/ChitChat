@@ -6,52 +6,102 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import FirebaseStorage
+import FirebaseAuth
 
-enum AuthViewModelChange {
-    case didErrorOccurred(_ error: Error)
-    case didSignUpSuccessful
+protocol AuthViewModelDelegate: AnyObject {
+    func errorOcurred(_ error: Error)
+    func authSucceded()
 }
 
-protocol authViewModelDelegate: AnyObject {
-    func createNewUser(name: String, email: String, password: String, phone: String, photo: String)
-    func signInUser(email: String, password: String)
-    func navigateToTabbar()
-}
-
-class authViewModel: FireStoreAccesible {
-    weak var delegate: authViewModelDelegate?
-    var changeHandler: ((AuthViewModelChange) -> Void)?
+protocol AuthViewModelProtocol {
+     var delegate: AuthViewModelDelegate? { get set }
     
-    private let firebaseAuth: FireStoreAccessibleProtocol
-    init(firebaseAuth: FireStoreAccessibleProtocol) {
-        self.firebaseAuth = firebaseAuth
+    func createUser(name: String, email: String, password: String, phone: String, photo: String, completion: @escaping(Result<User,Error>) -> Void)
+    
+    func signIn(email: String, password: String, completion: @escaping(Result<User,Error>) -> Void)
+    
+    
+    //func createNewUser(name: String, email: String, password: String, phone: String, photo: String, completion: @escaping(Result<User,Error>) -> Void)
+   // func signInUser(email: String, password: String)
+    
+}
+
+final class authViewModel: AuthViewModelProtocol {
+   
+   weak var delegate: AuthViewModelDelegate?
+   
+    var db: Firestore {
+        Firestore.firestore()
     }
     
-    func createNewUser(name: String, email: String, password: String, phone: String, photo: String) {
-        firebaseAuth.createUser(name: name, email: email, password: password, phone: phone, photo: photo) { result in
-            switch result {
-            case.success(_):
-                self.changeHandler?(.didSignUpSuccessful)
-            case.failure(let error):
-                self.changeHandler?(.didErrorOccurred(error))
+    var auth: Auth {
+        Auth.auth()
+    }
+    
+    func createUser(name: String, email: String, password: String, phone: String, photo: String, completion: @escaping (Result<User, Error>) -> Void) {
+        let user = User(name: name, email: email, password: password, phone: phone, photo: photo)
+        DispatchQueue.main.async {
+            self.auth.createUser(withEmail: email, password: password) {[weak self] result, error in
+                if let e = error {
+                    print("error occured while creating user: \(e)")
+                    self?.delegate?.errorOcurred(e)
+                } else {
+                    guard let userID = self?.auth.currentUser?.uid else {return}
+                    self?.db.collection("User_\(userID)").addDocument(data: ["name": user.name,
+                                                             "email": user.email,
+                                                                  "phone":user.phone,
+                                                                  "photo":user.photo]) { error in
+                        guard error == nil else {
+                            print("error occured while adding user data to firestore: \(String(describing: error))")
+                            self?.delegate?.errorOcurred(error!)
+                            return
+                        }
+                        self?.delegate?.authSucceded()
+                    }
+                }
             }
         }
     }
     
-    func signInUser(email: String, password: String) {
-        firebaseAuth.signIn(email: email, password: password) { result in
-            switch result {
-            case .success(let user):
-                print("USER IS: \(user)")
-                
-            case.failure(let error):
-                print("ERROR OCCURED \(error)")
-                
-                
-            }
-        }
+    func signIn(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
         
+        self.auth.signIn(withEmail: email, password: password) { result, error in
+            if error != nil {
+            } else {
+                print("signed in bro")
+                self.delegate?.authSucceded()
+                
+            }
+        }
     }
+    
+//    func createNewUser(name: String, email: String, password: String, phone: String, photo: String) {
+//        firebaseAuth.createUser(name: name, email: email, password: password, phone: phone, photo: photo) { result in
+//            switch result {
+//            case.success(_):
+//                print("smt")
+//            case.failure(_):
+//               print("fail")
+//            }
+//        }
+//    }
+    
+//    func signInUser(email: String, password: String) {
+//        firebaseAuth.signIn(email: email, password: password) { result in
+//            switch result {
+//            case .success(_):
+//                print("")
+//
+//            case.failure(let error):
+//                print("")
+//
+//
+//            }
+//        }
+//
+//    }
     
     }
     
