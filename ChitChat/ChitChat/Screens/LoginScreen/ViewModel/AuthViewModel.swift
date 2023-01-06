@@ -16,22 +16,18 @@ protocol AuthViewModelDelegate: AnyObject {
 }
 
 protocol AuthViewModelProtocol {
-     var delegate: AuthViewModelDelegate? { get set }
+    var delegate: AuthViewModelDelegate? { get set }
     
     func createUser(name: String, email: String, password: String, phone: String, photo: String, completion: @escaping(Result<User,Error>) -> Void)
-    
     func signIn(email: String, password: String, completion: @escaping(Result<User,Error>) -> Void)
-    
-    
-    //func createNewUser(name: String, email: String, password: String, phone: String, photo: String, completion: @escaping(Result<User,Error>) -> Void)
-   // func signInUser(email: String, password: String)
-    
 }
 
+
 final class authViewModel: AuthViewModelProtocol {
-   
-   weak var delegate: AuthViewModelDelegate?
-   
+    
+    // MARK: delegate AND PROPERTIES
+    weak var delegate: AuthViewModelDelegate?
+    
     var db: Firestore {
         Firestore.firestore()
     }
@@ -40,6 +36,8 @@ final class authViewModel: AuthViewModelProtocol {
         Auth.auth()
     }
     
+    // MARK: Auth methods
+    //SIGN UP
     func createUser(name: String, email: String, password: String, phone: String, photo: String, completion: @escaping (Result<User, Error>) -> Void) {
         let user = User(name: name, email: email, password: password, phone: phone, photo: photo)
         DispatchQueue.main.async {
@@ -50,9 +48,9 @@ final class authViewModel: AuthViewModelProtocol {
                 } else {
                     guard let userID = self?.auth.currentUser?.uid else {return}
                     self?.db.collection("User_\(userID)").addDocument(data: ["name": user.name,
-                                                             "email": user.email,
-                                                                  "phone":user.phone,
-                                                                  "photo":user.photo]) { error in
+                                                                             "email": user.email,
+                                                                             "phone":user.phone,
+                                                                             "photo":user.photo]) { error in
                         guard error == nil else {
                             print("error occured while adding user data to firestore: \(String(describing: error))")
                             self?.delegate?.errorOcurred(error!)
@@ -64,45 +62,19 @@ final class authViewModel: AuthViewModelProtocol {
             }
         }
     }
-    
+    // SIGN IN
     func signIn(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
         
-        self.auth.signIn(withEmail: email, password: password) { result, error in
+        self.auth.signIn(withEmail: email, password: password) {[weak self] result, error in
             if error != nil {
+                self?.delegate?.errorOcurred(error!)
             } else {
                 print("signed in bro")
-                self.delegate?.authSucceded()
+                self?.delegate?.authSucceded()
                 
             }
         }
     }
-    
-//    func createNewUser(name: String, email: String, password: String, phone: String, photo: String) {
-//        firebaseAuth.createUser(name: name, email: email, password: password, phone: phone, photo: photo) { result in
-//            switch result {
-//            case.success(_):
-//                print("smt")
-//            case.failure(_):
-//               print("fail")
-//            }
-//        }
-//    }
-    
-//    func signInUser(email: String, password: String) {
-//        firebaseAuth.signIn(email: email, password: password) { result in
-//            switch result {
-//            case .success(_):
-//                print("")
-//
-//            case.failure(let error):
-//                print("")
-//
-//
-//            }
-//        }
-//
-//    }
-    
-    }
-    
+}
+
 

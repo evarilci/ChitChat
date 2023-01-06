@@ -11,13 +11,12 @@ import FirebaseStorage
 import FirebaseAuth
 
 
+// TODO: Add database methods
 protocol FireStoreAccessibleProtocol {
     func createUser(name: String, email: String, password: String, phone: String, photo: String, completion: @escaping(Result<User,Error>) -> Void)
     
     func signIn(email: String, password: String, completion: @escaping(Result<User,Error>) -> Void)
 }
-
-
 
 class FireStoreAccesible: FireStoreAccessibleProtocol {
     
@@ -28,8 +27,6 @@ class FireStoreAccesible: FireStoreAccessibleProtocol {
     var auth: Auth {
         Auth.auth()
     }
-    
-    
     func createUser(name: String, email: String, password: String, phone: String, photo: String, completion: @escaping (Result<User,Error>) -> Void) {
         let user = User(name: name, email: email, password: password, phone: phone, photo: photo)
         DispatchQueue.main.async {
@@ -52,9 +49,7 @@ class FireStoreAccesible: FireStoreAccessibleProtocol {
             }
         }
     }
-    
     func signIn(email: String, password: String, completion: @escaping(Result<User,Error>) -> Void) {
-        
         self.auth.signIn(withEmail: email, password: password) { result, error in
             if error != nil {
                 print("sign in error occured: \(error!)")
@@ -62,9 +57,6 @@ class FireStoreAccesible: FireStoreAccessibleProtocol {
                 print("signed in bro\(result?.user)")
             }
         }
-        
-        
-        
     }
 }
 
