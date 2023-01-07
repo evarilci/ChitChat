@@ -7,13 +7,13 @@
 
 import UIKit
 
-final class LoginViewController: UIViewController {
+final class AuthViewController: UIViewController {
     
     // MARK: Properties
     let loginView = LoginView()
     let signUpView = SignUpView()
     let viewModel : authViewModel
-    
+    var choosenPhoto : UIImage?
     // MARK: INIT
     init(viewModel: authViewModel) {
         self.viewModel = viewModel
@@ -38,8 +38,16 @@ final class LoginViewController: UIViewController {
         signUpView.changeViewAction = { // change view to login
             self.view = self.loginView
         }
+        
+        signUpView.imageSelectAction = {
+            let picker = UIImagePickerController()
+            picker.allowsEditing = true
+            picker.delegate = self
+            self.present(picker, animated: true)
+        }
+        
         signUpView.signUpAction = { // signUp action trigger
-            self.viewModel.createUser(name: self.signUpView.name, email: self.signUpView.email, password: self.signUpView.password, phone: self.signUpView.phone, photo: self.signUpView.photo) { result in
+            self.viewModel.createUser(name: self.signUpView.name, email: self.signUpView.email, password: self.signUpView.password, phone: self.signUpView.phone, photoURL: self.signUpView.photo, photo: self.choosenPhoto ?? UIImage(systemName: "person.crop.circle.fill")!) { result in
                 switch result {
                 case .success(_):
                     self.authSucceded()
@@ -67,8 +75,23 @@ final class LoginViewController: UIViewController {
     }
 }
 
+  // MARK: UIImagePickerControllerDelegate && UINavigationControllerDelegate
+extension AuthViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.editedImage] as! UIImage
+        self.signUpView.choosePhotoButton.setImage(image, for: .normal)
+        self.signUpView.choosePhotoButton.layer.cornerRadius = (view.frame.width / 4) / 2
+        self.signUpView.choosePhotoButton.layer.borderWidth = 1.0
+        self.signUpView.choosePhotoButton.layer.borderColor = UIColor.systemGreen.cgColor
+        self.signUpView.choosePhotoButton.clipsToBounds = true
+        self.choosenPhoto = image
+        
+        dismiss(animated: true)
+    }
+}
+
 // MARK: DELEGATE EXTENSION
-extension LoginViewController: AuthViewModelDelegate {
+extension AuthViewController: AuthViewModelDelegate {
     func signInErrorOcurred(_ error: Error) {
         loginView.email = error.localizedDescription
         loginView.password = error.localizedDescription
@@ -89,7 +112,5 @@ extension LoginViewController: AuthViewModelDelegate {
         ViewController.modalPresentationStyle = .fullScreen
         self.navigationController?.present(ViewController, animated: true)
     }
-    
-    
 }
 

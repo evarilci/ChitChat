@@ -14,7 +14,7 @@
 		E500B62229662FE600DCCB9F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E500B62129662FE600DCCB9F /* FirebaseStorage */; };
 		E500B6252966331D00DCCB9F /* FirebaseAccesible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500B6242966331D00DCCB9F /* FirebaseAccesible.swift */; };
 		E50389012963528200B3773E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50389002963528200B3773E /* AppDelegate.swift */; };
-		E50389052963528200B3773E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50389042963528200B3773E /* LoginViewController.swift */; };
+		E50389052963528200B3773E /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50389042963528200B3773E /* AuthViewController.swift */; };
 		E503890A2963528600B3773E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E50389092963528600B3773E /* Assets.xcassets */; };
 		E503890D2963528600B3773E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E503890B2963528600B3773E /* LaunchScreen.storyboard */; };
 		E5109D2129674D6D008CB0B9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5109D2029674D6D008CB0B9 /* User.swift */; };
@@ -35,7 +35,7 @@
 		E500B6242966331D00DCCB9F /* FirebaseAccesible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAccesible.swift; sourceTree = "<group>"; };
 		E50388FD2963528200B3773E /* ChitChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChitChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50389002963528200B3773E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E50389042963528200B3773E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E50389042963528200B3773E /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		E50389092963528600B3773E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E503890C2963528600B3773E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E503890E2963528600B3773E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 		E578A2022963555200BDB23B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E50389042963528200B3773E /* LoginViewController.swift */,
+				E50389042963528200B3773E /* AuthViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -328,7 +328,7 @@
 				E578A2052963580400BDB23B /* UIViewController+Extension.swift in Sources */,
 				E543206F2964CE4C00B5733B /* SignUpView.swift in Sources */,
 				E578A208296362EC00BDB23B /* AuthTextField.swift in Sources */,
-				E50389052963528200B3773E /* LoginViewController.swift in Sources */,
+				E50389052963528200B3773E /* AuthViewController.swift in Sources */,
 				E578A20A29638FCA00BDB23B /* LoginView.swift in Sources */,
 				E56E456F2968AB5E00BD30C5 /* FirestoreKit.swift in Sources */,
 				E5109D2129674D6D008CB0B9 /* User.swift in Sources */,

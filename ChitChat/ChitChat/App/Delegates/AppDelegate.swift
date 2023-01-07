@@ -34,7 +34,7 @@ var window: UIWindow?
             window = UIWindow()
             //let firestoreProtocol : FireStoreAccessibleProtocol = FireStoreAccesible()
             let viewModel = authViewModel()
-            let controller = UINavigationController(rootViewController: LoginViewController(viewModel: viewModel))
+            let controller = UINavigationController(rootViewController: AuthViewController(viewModel: viewModel))
             window?.rootViewController = controller
             window?.makeKeyAndVisible()
         }

@@ -78,16 +78,20 @@ final class SignUpView: UIView {
     
     var photo: String {
         get {
-            "photo url comes here"
+            ""
+        }
+        set {
+            ""
         }
     }
     
-    private let choosePhotoButton: UIButton = {
-        let button = UIButton(type: .system)
+     let choosePhotoButton: UIButton = {
+        let button = UIButton()
+        button.tintColor = .systemGreen
         button.setImage(UIImage(systemName: "person.crop.circle.fill"), for: .normal)
         button.contentVerticalAlignment = .fill
         button.contentHorizontalAlignment = .fill
-        button.tintColor = UIColor.systemGreen
+        
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -144,7 +148,7 @@ final class SignUpView: UIView {
         
         dontHaveAccountButton.addTarget(self, action: #selector(changeView), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(signUpTapped), for: .touchUpInside)
-        
+        choosePhotoButton.addTarget(self, action: #selector(chooseImage), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {

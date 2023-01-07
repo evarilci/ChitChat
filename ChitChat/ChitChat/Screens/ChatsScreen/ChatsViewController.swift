@@ -36,7 +36,7 @@ final class ChatViewController: UIViewController {
             try user.signOut()
             
             let viewModel = authViewModel()
-            let ViewController = LoginViewController(viewModel: viewModel)
+            let ViewController = AuthViewController(viewModel: viewModel)
             ViewController.modalPresentationStyle = .fullScreen
             self.navigationController?.pushViewController(ViewController, animated: true)
            
