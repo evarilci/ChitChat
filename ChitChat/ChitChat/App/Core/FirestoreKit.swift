@@ -54,7 +54,7 @@ class FireStoreAccesible: FireStoreAccessibleProtocol {
             if error != nil {
                 print("sign in error occured: \(error!)")
             } else {
-                print("signed in bro\(result?.user)")
+                print("signed in bro")
             }
         }
     }

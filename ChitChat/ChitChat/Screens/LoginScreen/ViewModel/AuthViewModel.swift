@@ -11,7 +11,8 @@ import FirebaseStorage
 import FirebaseAuth
 
 protocol AuthViewModelDelegate: AnyObject {
-    func errorOcurred(_ error: Error)
+    func signInErrorOcurred(_ error: Error)
+    func signUpErrorOccured(_ error: Error)
     func authSucceded()
 }
 
@@ -44,16 +45,18 @@ final class authViewModel: AuthViewModelProtocol {
             self.auth.createUser(withEmail: email, password: password) {[weak self] result, error in
                 if let e = error {
                     print("error occured while creating user: \(e)")
-                    self?.delegate?.errorOcurred(e)
+                    
+                    self?.delegate?.signUpErrorOccured(e)
                 } else {
+                    // TODO: Get photo 
                     guard let userID = self?.auth.currentUser?.uid else {return}
-                    self?.db.collection("User_\(userID)").addDocument(data: ["name": user.name,
-                                                                             "email": user.email,
-                                                                             "phone":user.phone,
-                                                                             "photo":user.photo]) { error in
+                    self?.db.collection("User_\(userID)").addDocument(data: [K.firestore.name : user.name,
+                                                                             K.firestore.email : user.email,
+                                                                             K.firestore.phone : user.phone,
+                                                                             K.firestore.photo : user.photo]) { error in
                         guard error == nil else {
                             print("error occured while adding user data to firestore: \(String(describing: error))")
-                            self?.delegate?.errorOcurred(error!)
+                            self?.delegate?.signUpErrorOccured(error!)
                             return
                         }
                         self?.delegate?.authSucceded()
@@ -67,7 +70,7 @@ final class authViewModel: AuthViewModelProtocol {
         
         self.auth.signIn(withEmail: email, password: password) {[weak self] result, error in
             if error != nil {
-                self?.delegate?.errorOcurred(error!)
+                self?.delegate?.signInErrorOcurred(error!)
             } else {
                 print("signed in bro")
                 self?.delegate?.authSucceded()

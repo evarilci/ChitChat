@@ -69,8 +69,19 @@ final class LoginViewController: UIViewController {
 
 // MARK: DELEGATE EXTENSION
 extension LoginViewController: AuthViewModelDelegate {
+    func signInErrorOcurred(_ error: Error) {
+        loginView.email = error.localizedDescription
+        loginView.password = error.localizedDescription
+    }
+    
+    func signUpErrorOccured(_ error: Error) {
+        signUpView.password = error.localizedDescription
+    }
+    
     func errorOcurred(_ error: Error) {
-        print("SOME ERROR OCCURED AND CATCHED IN VC \(error)")
+        loginView.email = error.localizedDescription
+        loginView.password = error.localizedDescription
+       
     }
     
     func authSucceded() {

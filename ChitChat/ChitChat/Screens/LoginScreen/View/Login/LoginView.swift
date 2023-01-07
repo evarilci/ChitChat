@@ -16,14 +16,19 @@ final class LoginView: UIView {
         get {
             emailTextField.text ?? "email have not come"
         }
+        set {
+            emailTextField.errorLabel.text = newValue
+        }
     }
     
     var password: String {
         get {
             passwordTextField.text ?? "password have not come"
         }
+        set {
+            passwordTextField.errorLabel.text = newValue
+        }
     }
-    
     
     private let signInButton: UIButton = {
         let button = UIButton()
@@ -63,8 +68,6 @@ final class LoginView: UIView {
         self.backgroundColor = UIColor.systemGray6
         layoutSet()
         emailTextField.textContentType = .emailAddress
-//        emailTextField.autocorrectionType = .no
-//        emailTextField.autocapitalizationType = .none
         passwordTextField.textContentType = .password
         emailTextField.errorLabel.text = ""
         passwordTextField.errorLabel.text = ""

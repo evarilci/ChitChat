@@ -44,7 +44,7 @@ class AuthTextField: UITextField {
         headerLabel.font = UIFont(name: "Helvetica", size: 20)
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        
+        errorLabel.numberOfLines = .zero
         errorLabel.text = error
         errorLabel.textColor = UIColor.systemRed
         errorLabel.textAlignment = .left

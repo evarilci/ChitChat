@@ -11,45 +11,70 @@ final class SignUpView: UIView {
     
     var changeViewAction : (() -> Void)? = nil
     var signUpAction : (() -> Void)? = nil
-    private let imageView : UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "message.fill")!
-        imageView.tintColor = UIColor.systemGreen
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
-    
+    var imageSelectAction : (() -> Void)? = nil
+   
     var name: String {
         get {
-           nameTextField.text ?? "name have not come"
+            if nameTextField.text != "" {
+                nameTextField.errorLabel.text = ""
+                return nameTextField.text!
+            } else {
+                nameTextField.errorLabel.text = "Enter your name"
+                return ""
+            }
         }
+        
     }
     
     var email: String {
         get {
-            emailTextField.text ?? "email have not come"
+            if emailTextField.text != "" {
+                emailTextField.errorLabel.text = ""
+                return emailTextField.text!
+            } else {
+                emailTextField.errorLabel.text = "An email address must be provided"
+                return ""
+            }
+        }
+        set {
+            emailTextField.errorLabel.text = newValue
         }
     }
     
     var password: String {
         get {
-            if passwordTextField.text == passwordAgainTextField.text {
-               return passwordTextField.text ?? "password error"
+            if passwordTextField.text != "" && passwordTextField.text!.count >= 6 && passwordTextField.text == passwordAgainTextField.text {
+                passwordAgainTextField.errorLabel.text = ""
+                passwordTextField.errorLabel.text = ""
+               return passwordTextField.text!
+            } else if passwordTextField.text != passwordAgainTextField.text {
+                passwordAgainTextField.errorLabel.text = "Passwords don't match"
+                return ""
             } else {
-                passwordAgainTextField.errorLabel.text = "Passwords does not match"
-                return "password error"
+                passwordTextField.errorLabel.text = ""
+                passwordAgainTextField.errorLabel.text = ""
+               return passwordAgainTextField.text!
+                
             }
+        }
+        set {
+            passwordTextField.errorLabel.text = newValue
         }
     }
     
     
     var phone: String {
         get {
-            phoneTextField.text ?? "phone have not come"
+            if phoneTextField.text != "" {
+                phoneTextField.errorLabel.text = ""
+                return phoneTextField.text!
+            } else {
+                phoneTextField.errorLabel.text = "Phone number must be provided."
+                return ""
+            }
+            
         }
     }
-    
     
     var photo: String {
         get {
@@ -57,14 +82,21 @@ final class SignUpView: UIView {
         }
     }
     
-    
+    private let choosePhotoButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "person.crop.circle.fill"), for: .normal)
+        button.contentVerticalAlignment = .fill
+        button.contentHorizontalAlignment = .fill
+        button.tintColor = UIColor.systemGreen
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     private let dontHaveAccountButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(UIColor.secondaryLabel, for: .normal)
         button.setTitle("Have an account? Sign in!", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        
         return button
     }()
     
@@ -72,8 +104,8 @@ final class SignUpView: UIView {
         let button = UIButton()
         button.setBackgroundColor(UIColor.systemGreen, for: .normal)
         button.setBackgroundColor(UIColor.systemGreen.withAlphaComponent(0.7), for: .highlighted)
-        button.setTitle("Sign Up", for: .normal)
-        button.setTitle("Sign Up", for: .highlighted)
+        button.setTitle("Register", for: .normal)
+        button.setTitle("Register", for: .highlighted)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 16.0
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -103,7 +135,6 @@ final class SignUpView: UIView {
         emailTextField.autocapitalizationType = .none
         passwordTextField.textContentType = .password
         passwordTextField.isSecureTextEntry = true
-        passwordAgainTextField.textContentType = .password
         passwordAgainTextField.isSecureTextEntry = true
         emailTextField.errorLabel.text = ""
         passwordTextField.errorLabel.text = ""
@@ -127,6 +158,9 @@ final class SignUpView: UIView {
     @objc func signUpTapped() {
         signUpAction?()
     }
+    @objc func chooseImage() {
+        imageSelectAction?()
+    }
     
     
     func layoutSet() {
@@ -147,21 +181,21 @@ final class SignUpView: UIView {
         
         
         
-        
-        addSubview(imageView)
+        addSubview(choosePhotoButton)
+       // addSubview(imageView)
         addSubview(stackView)
         addSubview(dontHaveAccountButton)
         NSLayoutConstraint.activate([
             
             
             
-            imageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
-            imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            choosePhotoButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
+            choosePhotoButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
-            imageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/4),
-            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
+            choosePhotoButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/4),
+            choosePhotoButton.heightAnchor.constraint(equalTo: choosePhotoButton.widthAnchor),
             
-            stackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16),
+            stackView.topAnchor.constraint(equalTo: choosePhotoButton.bottomAnchor, constant: 16),
             stackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             stackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
