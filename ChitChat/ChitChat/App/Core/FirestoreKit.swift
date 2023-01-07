@@ -39,7 +39,7 @@ class FireStoreAccesible: FireStoreAccessibleProtocol {
                     self.db.collection("User_\(userID)").addDocument(data: ["name": user.name,
                                                              "email": user.email,
                                                                   "phone":user.phone,
-                                                                  "photo":user.photo]) { error in
+                                                                            "photo":user.photo]) { error in
                         guard error == nil else {
                             print("error occured while adding user data to firestore: \(String(describing: error))")
                             return

@@ -52,7 +52,7 @@ final class AuthViewController: UIViewController {
                 case .success(_):
                     self.authSucceded()
                 case.failure(let error):
-                    self.errorOcurred(error)
+                    self.signUpErrorOccured(error)
                 }
             }
         }
@@ -64,7 +64,7 @@ final class AuthViewController: UIViewController {
                 case .success(_):
                     self.authSucceded()
                 case.failure(let error):
-                    self.errorOcurred(error)
+                    self.signInErrorOcurred(error)
                 }
             }
         }
@@ -95,22 +95,21 @@ extension AuthViewController: AuthViewModelDelegate {
     func signInErrorOcurred(_ error: Error) {
         loginView.email = error.localizedDescription
         loginView.password = error.localizedDescription
+        print("ERROR CATCHED WHILE SIGN IN: \(error)")
     }
     
     func signUpErrorOccured(_ error: Error) {
         signUpView.password = error.localizedDescription
-    }
-    
-    func errorOcurred(_ error: Error) {
-        loginView.email = error.localizedDescription
-        loginView.password = error.localizedDescription
-       
+        print("ERROR CATCHED WHILE SIGN UP: \(error)")
     }
     
     func authSucceded() {
-        let ViewController = TabBarViewController()
-        ViewController.modalPresentationStyle = .fullScreen
-        self.navigationController?.present(ViewController, animated: true)
+        DispatchQueue.main.async {
+            let ViewController = TabBarViewController()
+            ViewController.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(ViewController, animated: true)
+        }
+       
     }
 }
 

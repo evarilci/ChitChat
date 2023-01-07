@@ -80,9 +80,6 @@ final class SignUpView: UIView {
         get {
             ""
         }
-        set {
-            ""
-        }
     }
     
      let choosePhotoButton: UIButton = {
