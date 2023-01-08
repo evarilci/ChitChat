@@ -9,6 +9,8 @@ import Foundation
 
 struct K {
   
+    static let chatCellIdentifier = "ChatCell"
+    
     struct firestore {
         static let name = "name"
         static let email = "email"

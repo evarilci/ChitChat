@@ -28,6 +28,10 @@
 		E578A208296362EC00BDB23B /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578A207296362EC00BDB23B /* AuthTextField.swift */; };
 		E578A20A29638FCA00BDB23B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578A20929638FCA00BDB23B /* LoginView.swift */; };
 		E5D03D4E2964E33600DE6BAD /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D03D4D2964E33600DE6BAD /* UIButton+Extension.swift */; };
+		E5EF1118296B405E00D8F799 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = E5EF1117296B405E00D8F799 /* JGProgressHUD */; };
+		E5EF111B296B4B9B00D8F799 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E5EF111A296B4B9B00D8F799 /* IQKeyboardManagerSwift */; };
+		E5EF1121296B5A1400D8F799 /* ChatsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EF1120296B5A1400D8F799 /* ChatsTableView.swift */; };
+		E5EF1123296B5AB300D8F799 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EF1122296B5AB300D8F799 /* ChatTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +54,8 @@
 		E578A207296362EC00BDB23B /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		E578A20929638FCA00BDB23B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E5D03D4D2964E33600DE6BAD /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		E5EF1120296B5A1400D8F799 /* ChatsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableView.swift; sourceTree = "<group>"; };
+		E5EF1122296B5AB300D8F799 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,8 @@
 				E500B62229662FE600DCCB9F /* FirebaseStorage in Frameworks */,
 				E500B61E29662FE600DCCB9F /* FirebaseAuth in Frameworks */,
 				E500B62029662FE600DCCB9F /* FirebaseFirestore in Frameworks */,
+				E5EF1118296B405E00D8F799 /* JGProgressHUD in Frameworks */,
+				E5EF111B296B4B9B00D8F799 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +129,9 @@
 		E56E45722968CEBA00BD30C5 /* ChatsScreen */ = {
 			isa = PBXGroup;
 			children = (
-				E56E45702968C63900BD30C5 /* ChatsViewController.swift */,
+				E5EF111E296B597700D8F799 /* ViewModel */,
+				E5EF111D296B597100D8F799 /* View */,
+				E5EF111C296B596400D8F799 /* Controller */,
 			);
 			path = ChatsScreen;
 			sourceTree = "<group>";
@@ -145,7 +155,7 @@
 			children = (
 				E56E45722968CEBA00BD30C5 /* ChatsScreen */,
 				E578A1FE2963552C00BDB23B /* LoginScreen */,
-				E56E45732968CED400BD30C5 /* TabBar.swift */,
+				E5EF111F296B598800D8F799 /* Tabbar */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -189,7 +199,7 @@
 				E578A2022963555200BDB23B /* Controller */,
 				E578A2012963554700BDB23B /* ViewModel */,
 				E578A1FF2963553B00BDB23B /* View */,
-				E578A2002963554100BDB23B /* Modal */,
+				E578A2002963554100BDB23B /* Model */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -203,12 +213,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		E578A2002963554100BDB23B /* Modal */ = {
+		E578A2002963554100BDB23B /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				E5109D2029674D6D008CB0B9 /* User.swift */,
 			);
-			path = Modal;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E578A2012963554700BDB23B /* ViewModel */ = {
@@ -244,6 +254,38 @@
 			path = ReusableViews;
 			sourceTree = "<group>";
 		};
+		E5EF111C296B596400D8F799 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E56E45702968C63900BD30C5 /* ChatsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E5EF111D296B597100D8F799 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5EF1120296B5A1400D8F799 /* ChatsTableView.swift */,
+				E5EF1122296B5AB300D8F799 /* ChatTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E5EF111E296B597700D8F799 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E5EF111F296B598800D8F799 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				E56E45732968CED400BD30C5 /* TabBar.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -265,6 +307,8 @@
 				E500B61D29662FE600DCCB9F /* FirebaseAuth */,
 				E500B61F29662FE600DCCB9F /* FirebaseFirestore */,
 				E500B62129662FE600DCCB9F /* FirebaseStorage */,
+				E5EF1117296B405E00D8F799 /* JGProgressHUD */,
+				E5EF111A296B4B9B00D8F799 /* IQKeyboardManagerSwift */,
 			);
 			productName = ChitChat;
 			productReference = E50388FD2963528200B3773E /* ChitChat.app */;
@@ -296,6 +340,8 @@
 			mainGroup = E50388F42963528200B3773E;
 			packageReferences = (
 				E500B61A29662FE600DCCB9F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E5EF1116296B405E00D8F799 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+				E5EF1119296B4B9B00D8F799 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = E50388FE2963528200B3773E /* Products */;
 			projectDirPath = "";
@@ -325,9 +371,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5109D2329676DB2008CB0B9 /* AuthViewModel.swift in Sources */,
+				E5EF1121296B5A1400D8F799 /* ChatsTableView.swift in Sources */,
 				E578A2052963580400BDB23B /* UIViewController+Extension.swift in Sources */,
 				E543206F2964CE4C00B5733B /* SignUpView.swift in Sources */,
 				E578A208296362EC00BDB23B /* AuthTextField.swift in Sources */,
+				E5EF1123296B5AB300D8F799 /* ChatTableViewCell.swift in Sources */,
 				E50389052963528200B3773E /* AuthViewController.swift in Sources */,
 				E578A20A29638FCA00BDB23B /* LoginView.swift in Sources */,
 				E56E456F2968AB5E00BD30C5 /* FirestoreKit.swift in Sources */,
@@ -557,6 +605,23 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		E5EF1116296B405E00D8F799 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		E5EF1119296B4B9B00D8F799 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = versionRange;
+				maximumVersion = 9.0.0;
+				minimumVersion = 6.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -579,6 +644,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E500B61A29662FE600DCCB9F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		E5EF1117296B405E00D8F799 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5EF1116296B405E00D8F799 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
+		E5EF111A296B4B9B00D8F799 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5EF1119296B4B9B00D8F799 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -104,12 +104,14 @@ extension AuthViewController: AuthViewModelDelegate {
     }
     
     func authSucceded() {
+        self.showProgressHud(true)
         DispatchQueue.main.async {
             let ViewController = TabBarViewController()
             ViewController.modalPresentationStyle = .fullScreen
             self.navigationController?.present(ViewController, animated: true)
+           
         }
-       
+        self.showProgressHud(false)
     }
 }
 

@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseCore
 import FirebaseAuth
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,10 +19,21 @@ var window: UIWindow?
         FirebaseApp.configure()
  
         setInitialScreen()
+        keyboardSetup()
 
         return true
     }
 
+    func keyboardSetup() {
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Dismiss"
+        IQKeyboardManager.shared.toolbarTintColor = UIColor.systemBlue
+        IQKeyboardManager.shared.keyboardDistanceFromTextField = 20
+        IQKeyboardManager.shared.layoutIfNeededOnUpdate = true
+       
+        
+    }
     
     func setInitialScreen() {
         let user = Auth.auth().currentUser
