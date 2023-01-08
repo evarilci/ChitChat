@@ -15,7 +15,6 @@
 		E500B6252966331D00DCCB9F /* FirebaseAccesible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500B6242966331D00DCCB9F /* FirebaseAccesible.swift */; };
 		E50389012963528200B3773E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50389002963528200B3773E /* AppDelegate.swift */; };
 		E50389052963528200B3773E /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50389042963528200B3773E /* AuthViewController.swift */; };
-		E503890A2963528600B3773E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E50389092963528600B3773E /* Assets.xcassets */; };
 		E503890D2963528600B3773E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E503890B2963528600B3773E /* LaunchScreen.storyboard */; };
 		E5109D2129674D6D008CB0B9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5109D2029674D6D008CB0B9 /* User.swift */; };
 		E5109D2329676DB2008CB0B9 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5109D2229676DB2008CB0B9 /* AuthViewModel.swift */; };
@@ -40,7 +39,6 @@
 		E50388FD2963528200B3773E /* ChitChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChitChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50389002963528200B3773E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E50389042963528200B3773E /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		E50389092963528600B3773E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E503890C2963528600B3773E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E503890E2963528600B3773E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5109D2029674D6D008CB0B9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -172,7 +170,6 @@
 		E578A1FB2963550300BDB23B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				E50389092963528600B3773E /* Assets.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -358,7 +355,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E503890D2963528600B3773E /* LaunchScreen.storyboard in Resources */,
-				E503890A2963528600B3773E /* Assets.xcassets in Resources */,
 				E500B61929662EF700DCCB9F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

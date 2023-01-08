@@ -17,7 +17,7 @@ final class ChatView: UIView {
         super.init(frame: .zero)
         setTableViewConstraints()
         tableView.register(ChatTableViewCell.self, forCellReuseIdentifier: K.chatCellIdentifier)
-        tableView.rowHeight = 100
+        tableView.rowHeight = 75
     }
      
      required init?(coder: NSCoder) {
@@ -37,7 +37,7 @@ final class ChatView: UIView {
             tableView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
          
          
          ])

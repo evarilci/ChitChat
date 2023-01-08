@@ -18,7 +18,7 @@ final class TabBarViewController: UITabBarController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
     }
     
     // Create all of the tabs and icons of the tabs
@@ -41,16 +41,8 @@ final class TabBarViewController: UITabBarController {
                                                 image: UIImage) -> UIViewController{
         // add navigation controller to each tab
         let navigationController = UINavigationController(rootViewController: rootViewController)
-        let appearence = UINavigationBarAppearance()
-        appearence.configureWithTransparentBackground()
-        navigationController.navigationBar.standardAppearance = appearence
-        navigationController.navigationBar.scrollEdgeAppearance = appearence
-        navigationController.navigationBar.compactAppearance = appearence
         navigationController.tabBarItem.title = title
         navigationController.tabBarItem.image = image
-        
-        
-       // navigationController.navigationBar.c
         navigationController.navigationBar.prefersLargeTitles = true
         rootViewController.navigationItem.title = title
         return navigationController
