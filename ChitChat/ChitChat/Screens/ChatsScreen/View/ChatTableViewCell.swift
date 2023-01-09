@@ -72,7 +72,7 @@ class ChatTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureLayout()
-        profileImage.layer.cornerRadius = self.frame.height - 11
+        profileImage.layer.cornerRadius = ((UIScreen.main.bounds.height / 9) - 8) / 2
         
     }
     
