@@ -17,7 +17,7 @@ final class ChatView: UIView {
         super.init(frame: .zero)
         setTableViewConstraints()
         tableView.register(ChatTableViewCell.self, forCellReuseIdentifier: K.chatCellIdentifier)
-        tableView.rowHeight = UIScreen.main.bounds.height / 9
+        tableView.rowHeight = UIScreen.main.bounds.height / 10
     }
      
      required init?(coder: NSCoder) {

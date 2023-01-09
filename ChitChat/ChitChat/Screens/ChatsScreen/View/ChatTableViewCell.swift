@@ -42,14 +42,15 @@ class ChatTableViewCell: UITableViewCell {
     private lazy var profileImage : UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
-       // view.backgroundColor = .gray
+        view.backgroundColor = .gray
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     private lazy var latestMessage : UILabel = {
         let label = UILabel()
-        label.numberOfLines = 1
+        label.numberOfLines = 2
+        label.lineBreakMode = .byTruncatingTail
         label.textAlignment = .left
         label.textColor = UIColor.secondaryLabel
         label.font = UIFont(name: "Helvetica", size: 15)
@@ -61,10 +62,11 @@ class ChatTableViewCell: UITableViewCell {
         let label = UILabel()
         label.numberOfLines = 1
         label.textAlignment = .left
-        label.font = UIFont.boldSystemFont(ofSize: 25)
+        label.font = UIFont.boldSystemFont(ofSize: 23)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
     
     
     // MARK: Init
@@ -72,7 +74,9 @@ class ChatTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureLayout()
-        profileImage.layer.cornerRadius = ((UIScreen.main.bounds.height / 9) - 8) / 2
+        profileImage.layer.cornerRadius = ((UIScreen.main.bounds.height / 10) - 8) / 2
+        
+        
         
     }
     
@@ -97,14 +101,15 @@ class ChatTableViewCell: UITableViewCell {
             nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 4),
             nameLabel.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 8),
             nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -4),
-            nameLabel.heightAnchor.constraint(equalToConstant: 30),
+            nameLabel.heightAnchor.constraint(equalToConstant: 23),
             
             
             // last message label layout
-            latestMessage.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
+            latestMessage.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4),
             latestMessage.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 12),
-            latestMessage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -4),
-            latestMessage.heightAnchor.constraint(equalToConstant: 20)
+            latestMessage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
+            //latestMessage.heightAnchor.constraint(equalToConstant: 30)
+            latestMessage.bottomAnchor.constraint(equalTo: self.bottomAnchor)
             
         ])
     }

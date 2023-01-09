@@ -15,12 +15,18 @@ final class ChatViewController: UIViewController {
         super.viewDidLoad()
         view = mainView
         viewModel.delegate = self
-        viewModel.fetchProfilePhoto()
+        viewModel.fetchProfile()
         mainView.setTableViewDelegates(delegate: self, datasource: self)
         configureBarButton()
         
        
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+       
+      
+    }
+    
     private func configureBarButton(){
         let barButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(compose))
         self.navigationItem.rightBarButtonItem = barButton
@@ -40,7 +46,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.chatCellIdentifier, for: indexPath) as! ChatTableViewCell
         cell.name = "Eymen Varilci"
-        cell.message = "This is a dummy message."
+        cell.message = "This is a really long dummy message that i wrote to show you how it looks like in the actual device or simulator."
         //cell.image = viewModel.image
         return cell
     }

@@ -49,13 +49,14 @@ final class authViewModel: AuthViewModelProtocol {
     //SIGN UP
     func createUser(name: String, email: String, password: String, phone: String, photoURL: String, photo: UIImage, completion: @escaping (Result<User, Error>) -> Void) {
         let imageID = UUID().uuidString
-        let user = User(name: name, email: email, password: password, phone: phone, photo: photoURL)
+        
         DispatchQueue.main.async {
             self.auth.createUser(withEmail: email, password: password) {[weak self] result, error in
                 if let e = error {
                     self?.delegate?.signUpErrorOccured(e)
                 } else {
                     guard let userID = self?.auth.currentUser?.uid else {return}
+                    let user = User(id: userID ,name: name, email: email, phone: phone, photo: photoURL)
                    // create referance in storage and upload photo
                     let referance = self?.storage.reference(withPath:  "\(userID)media/profile_image/\(imageID).jpeg" )
                     let image = photo.jpegData(compressionQuality: 0.7)
@@ -66,7 +67,8 @@ final class authViewModel: AuthViewModelProtocol {
                             } else {
                                 guard let url = url?.absoluteString else {return} // image url from storage
                                 
-                                self?.db.collection("users").document(userID).setData([K.firestore.name : user.name,
+                                self?.db.collection(K.firestore.userCollection).document(userID).setData([K.firestore.id : user.id,
+                                                                                       K.firestore.name : user.name,
                                                                                        K.firestore.email : user.email,
                                                                                        K.firestore.phone : user.phone,
                                                                                        K.firestore.photo : url], completion: { error in

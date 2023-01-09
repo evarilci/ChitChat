@@ -18,7 +18,7 @@ protocol ChatsViewModelDelegate: AnyObject {
 
 protocol ChatsViewModelProtocol {
     var delegate : ChatsViewModelDelegate? { get set }
-    func fetchProfilePhoto()
+    func fetchProfile()
 }
 
 final class ChatsViewModel : ChatsViewModelProtocol {
@@ -45,8 +45,8 @@ final class ChatsViewModel : ChatsViewModelProtocol {
         FirebaseStorage.StorageMetadata()
     }
     
-    func fetchProfilePhoto() {
-        db.collection("users").addSnapshotListener { snapshot, error in
+    func fetchProfile() {
+        db.collection(K.firestore.userCollection).addSnapshotListener { snapshot, error in
             if let e = error {
                 self.delegate?.profilePhotoFetchFailed(e)
             } else {
