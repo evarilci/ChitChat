@@ -31,6 +31,7 @@
 		E5EF111B296B4B9B00D8F799 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E5EF111A296B4B9B00D8F799 /* IQKeyboardManagerSwift */; };
 		E5EF1121296B5A1400D8F799 /* ChatsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EF1120296B5A1400D8F799 /* ChatsTableView.swift */; };
 		E5EF1123296B5AB300D8F799 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EF1122296B5AB300D8F799 /* ChatTableViewCell.swift */; };
+		E5EF1129296C8E0000D8F799 /* ChatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EF1128296C8E0000D8F799 /* ChatsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		E5D03D4D2964E33600DE6BAD /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		E5EF1120296B5A1400D8F799 /* ChatsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableView.swift; sourceTree = "<group>"; };
 		E5EF1122296B5AB300D8F799 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		E5EF1128296C8E0000D8F799 /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +273,7 @@
 		E5EF111E296B597700D8F799 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E5EF1128296C8E0000D8F799 /* ChatsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				E56E45762969FC2100BD30C5 /* Constants.swift in Sources */,
 				E5D03D4E2964E33600DE6BAD /* UIButton+Extension.swift in Sources */,
 				E56E45712968C63900BD30C5 /* ChatsViewController.swift in Sources */,
+				E5EF1129296C8E0000D8F799 /* ChatsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
