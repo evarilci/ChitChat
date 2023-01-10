@@ -11,19 +11,28 @@ final class ChatViewController: UIViewController {
 
     let mainView = ChatView()
     let viewModel = ChatsViewModel()
+    var height : CGFloat?
     override func viewDidLoad() {
         super.viewDidLoad()
         view = mainView
-        mainView.rowHeight = self.screen()?.bounds.height
+        height = screen()?.bounds.height
+        mainView.rowHeight = height
         viewModel.delegate = self
         viewModel.fetchProfile()
         mainView.setTableViewDelegates(delegate: self, datasource: self)
         configureBarButton()
         
+        print(height!)
        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        mainView.rowHeight = height
+        viewModel.fetchUsers { users in
+            users.forEach { user in
+                print(user.name)
+            }
+        }
     }
     
     private func configureBarButton(){
@@ -31,7 +40,10 @@ final class ChatViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = barButton
     }
     @objc func compose() {
-        print("newMessage")
+        let controller = NewMessageViewController()
+        controller.height = height!
+        controller.modalPresentationStyle = .formSheet
+        self.navigationController?.present(controller, animated: true)
     }
 }
 
@@ -68,6 +80,7 @@ extension ChatViewController: ChatsViewModelDelegate {
             imageView.image = self.viewModel.image
             titleView.addSubview(imageView)
             self.navigationItem.titleView = titleView
+            self.mainView.tableView.reloadData()
         }
        
     }

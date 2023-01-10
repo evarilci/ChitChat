@@ -32,6 +32,9 @@
 		E5EF1121296B5A1400D8F799 /* ChatsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EF1120296B5A1400D8F799 /* ChatsTableView.swift */; };
 		E5EF1123296B5AB300D8F799 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EF1122296B5AB300D8F799 /* ChatTableViewCell.swift */; };
 		E5EF1129296C8E0000D8F799 /* ChatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EF1128296C8E0000D8F799 /* ChatsViewModel.swift */; };
+		E5EF112F296DF4E400D8F799 /* NewMessageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EF112E296DF4E400D8F799 /* NewMessageTableView.swift */; };
+		E5EF1131296DF4F700D8F799 /* NewMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EF1130296DF4F700D8F799 /* NewMessageCell.swift */; };
+		E5EF1133296DF59300D8F799 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EF1132296DF59200D8F799 /* NewMessageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		E5EF1120296B5A1400D8F799 /* ChatsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableView.swift; sourceTree = "<group>"; };
 		E5EF1122296B5AB300D8F799 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		E5EF1128296C8E0000D8F799 /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
+		E5EF112E296DF4E400D8F799 /* NewMessageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageTableView.swift; sourceTree = "<group>"; };
+		E5EF1130296DF4F700D8F799 /* NewMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageCell.swift; sourceTree = "<group>"; };
+		E5EF1132296DF59200D8F799 /* NewMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,9 +135,9 @@
 		E56E45722968CEBA00BD30C5 /* ChatsScreen */ = {
 			isa = PBXGroup;
 			children = (
+				E5EF111C296B596400D8F799 /* Controller */,
 				E5EF111E296B597700D8F799 /* ViewModel */,
 				E5EF111D296B597100D8F799 /* View */,
-				E5EF111C296B596400D8F799 /* Controller */,
 			);
 			path = ChatsScreen;
 			sourceTree = "<group>";
@@ -290,8 +296,35 @@
 		E5EF112A296DF1C000D8F799 /* NewMessageScreen */ = {
 			isa = PBXGroup;
 			children = (
+				E5EF112D296DF48400D8F799 /* Controller */,
+				E5EF112C296DF47A00D8F799 /* ViewModel */,
+				E5EF112B296DF47400D8F799 /* View */,
 			);
 			path = NewMessageScreen;
+			sourceTree = "<group>";
+		};
+		E5EF112B296DF47400D8F799 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5EF112E296DF4E400D8F799 /* NewMessageTableView.swift */,
+				E5EF1130296DF4F700D8F799 /* NewMessageCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E5EF112C296DF47A00D8F799 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E5EF112D296DF48400D8F799 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E5EF1132296DF59200D8F799 /* NewMessageViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,11 +410,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5EF1131296DF4F700D8F799 /* NewMessageCell.swift in Sources */,
 				E5109D2329676DB2008CB0B9 /* AuthViewModel.swift in Sources */,
 				E5EF1121296B5A1400D8F799 /* ChatsTableView.swift in Sources */,
+				E5EF112F296DF4E400D8F799 /* NewMessageTableView.swift in Sources */,
 				E578A2052963580400BDB23B /* UIViewController+Extension.swift in Sources */,
 				E543206F2964CE4C00B5733B /* SignUpView.swift in Sources */,
 				E578A208296362EC00BDB23B /* AuthTextField.swift in Sources */,
+				E5EF1133296DF59300D8F799 /* NewMessageViewController.swift in Sources */,
 				E5EF1123296B5AB300D8F799 /* ChatTableViewCell.swift in Sources */,
 				E50389052963528200B3773E /* AuthViewController.swift in Sources */,
 				E578A20A29638FCA00BDB23B /* LoginView.swift in Sources */,

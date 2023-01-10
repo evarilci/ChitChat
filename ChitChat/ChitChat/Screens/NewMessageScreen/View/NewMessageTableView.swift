@@ -1,19 +1,18 @@
 //
-//  ChatsTableView.swift
+//  NewMessageTableView.swift
 //  ChitChat
 //
-//  Created by Eymen Varilci on 8.01.2023.
+//  Created by Eymen Varilci on 10.01.2023.
 //
-
 import UIKit
 
-final class ChatView: UIView {
+final class NewMessageView: UIView {
     
     
      var tableView = UITableView()
     var rowHeight : CGFloat? {
         set {
-            tableView.rowHeight = newValue! / 10
+            tableView.rowHeight = newValue! / 12
         }
         get {
             tableView.rowHeight
@@ -23,8 +22,8 @@ final class ChatView: UIView {
     init() {
         super.init(frame: .zero)
         setTableViewConstraints()
-     //   tableView.rowHeight = UIScreen.main.bounds.height / 10
-        tableView.register(ChatTableViewCell.self, forCellReuseIdentifier: K.chatCellIdentifier)
+        tableView.rowHeight = UIScreen.main.bounds.height / 12
+        tableView.register(NewMessageTableViewCell.self, forCellReuseIdentifier: K.newMessageCellIdentifier)
     }
      
      required init?(coder: NSCoder) {

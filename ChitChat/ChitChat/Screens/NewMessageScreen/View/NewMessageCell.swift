@@ -1,24 +1,16 @@
 //
-//  ChatTableViewCell.swift
+//  NewMessageCell.swift
 //  ChitChat
 //
-//  Created by Eymen Varilci on 8.01.2023.
+//  Created by Eymen Varilci on 10.01.2023.
 //
+
 
 import UIKit
 
-class ChatTableViewCell: UITableViewCell {
+final class NewMessageTableViewCell: UITableViewCell {
     
     // MARK: Properties
-    
-    var message: String? {
-        set {
-            latestMessage.text = newValue
-        }
-        get {
-            latestMessage.text
-        }
-    }
     
     var name: String? {
         set {
@@ -40,7 +32,7 @@ class ChatTableViewCell: UITableViewCell {
     
     var profileImageRadius : CGFloat? {
         set {
-            profileImage.layer.cornerRadius = ((newValue! / 10) - 8) / 2
+            profileImage.layer.cornerRadius = ((newValue! / 12) - 4) / 2
         }
         get {
             profileImage.layer.cornerRadius
@@ -56,22 +48,11 @@ class ChatTableViewCell: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    private lazy var latestMessage : UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 2
-        label.lineBreakMode = .byTruncatingTail
-        label.textAlignment = .left
-        label.textColor = UIColor.secondaryLabel
-        label.font = UIFont(name: "Helvetica", size: 15)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     private lazy var nameLabel : UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
         label.textAlignment = .left
-        label.font = UIFont.boldSystemFont(ofSize: 23)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -83,7 +64,9 @@ class ChatTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureLayout()
-      //  profileImage.layer.cornerRadius = ((UIScreen.main.bounds.height / 10) - 8) / 2
+        
+      //  profileImage.layer.cornerRadius = ((UIScreen.main.bounds.height / 12) - 8) / 2
+
         
     }
     
@@ -94,7 +77,6 @@ class ChatTableViewCell: UITableViewCell {
     // MARK: Layout method
     private func configureLayout() {
         addSubview(profileImage)
-        addSubview(latestMessage)
         addSubview(nameLabel)
         
         NSLayoutConstraint.activate([
@@ -110,15 +92,8 @@ class ChatTableViewCell: UITableViewCell {
             nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -4),
             nameLabel.heightAnchor.constraint(equalToConstant: 23),
             
-            
-            // last message label layout
-            latestMessage.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4),
-            latestMessage.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 12),
-            latestMessage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
-            //latestMessage.heightAnchor.constraint(equalToConstant: 30)
-            latestMessage.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-            
         ])
     }
     
 }
+
