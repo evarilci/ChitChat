@@ -12,7 +12,7 @@ final class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view.backgroundColor = .systemRed
+        view.backgroundColor = .systemGray6
         setupViewControllers()
     }
 
@@ -24,9 +24,9 @@ final class TabBarViewController: UITabBarController {
     // Create all of the tabs and icons of the tabs
     func setupViewControllers(){
         viewControllers = [
-            createNavigationController(for: HomeViewController(),
-                                       title: NSLocalizedString("Home", comment: ""),
-                                       image: UIImage(systemName:"house.fill")!),
+            createNavigationController(for: ChatViewController(),
+                                       title: NSLocalizedString("Chats", comment: ""),
+                                       image: UIImage(systemName:"message.fill")!),
 //            createNavigationController(for: SearchViewController(),
 //                                       title: NSLocalizedString("Search", comment: ""),
 //                                       image: UIImage(named:"search")!),
