@@ -28,11 +28,6 @@ final class ChatViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         mainView.rowHeight = height
-        viewModel.fetchUsers { users in
-            users.forEach { user in
-                print(user.name)
-            }
-        }
     }
     
     private func configureBarButton(){

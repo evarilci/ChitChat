@@ -19,7 +19,6 @@ protocol ChatsViewModelDelegate: AnyObject {
 
 protocol ChatsViewModelProtocol {
     var delegate : ChatsViewModelDelegate? { get set }
-    func fetchUsers(completion: @escaping([SomeUser]) -> Void)
     func fetchProfile()
 }
 
@@ -47,18 +46,6 @@ final class ChatsViewModel : ChatsViewModelProtocol {
         FirebaseStorage.StorageMetadata()
     }
     
-    func fetchUsers(completion: @escaping([SomeUser]) -> Void) {
-        var users = [SomeUser]()
-        db.collection(K.firestore.userCollection).getDocuments { snapshot, error in
-            if error != nil {
-                self.delegate?.profilePhotoFetchFailed(error!)
-            } else {
-                users = snapshot?.documents.map({ SomeUser(data: $0.data())}) ?? []
-                completion(users)
-                self.delegate?.profilePhotoFetchSucceed()
-            }
-        }
-    }
     func fetchProfile() {
         db.collection(K.firestore.userCollection).addSnapshotListener { snapshot, error in
             if let e = error {

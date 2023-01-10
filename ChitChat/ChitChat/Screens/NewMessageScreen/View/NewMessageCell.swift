@@ -32,7 +32,7 @@ final class NewMessageTableViewCell: UITableViewCell {
     
     var profileImageRadius : CGFloat? {
         set {
-            profileImage.layer.cornerRadius = ((newValue! / 12) - 4) / 2
+            profileImage.layer.cornerRadius = ((newValue! / 12) - 8) / 2
         }
         get {
             profileImage.layer.cornerRadius
@@ -40,10 +40,10 @@ final class NewMessageTableViewCell: UITableViewCell {
     }
     
 // MARK: VIEWS
-    private lazy var profileImage : UIImageView = {
+    lazy var profileImage : UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
-        view.backgroundColor = .gray
+        //view.backgroundColor = .gray
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view

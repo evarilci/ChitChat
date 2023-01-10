@@ -35,6 +35,8 @@
 		E5EF112F296DF4E400D8F799 /* NewMessageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EF112E296DF4E400D8F799 /* NewMessageTableView.swift */; };
 		E5EF1131296DF4F700D8F799 /* NewMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EF1130296DF4F700D8F799 /* NewMessageCell.swift */; };
 		E5EF1133296DF59300D8F799 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EF1132296DF59200D8F799 /* NewMessageViewController.swift */; };
+		E5EF1135296E049000D8F799 /* NewMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EF1134296E049000D8F799 /* NewMessageViewModel.swift */; };
+		E5EF1138296E148F00D8F799 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E5EF1137296E148F00D8F799 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,7 @@
 		E5EF112E296DF4E400D8F799 /* NewMessageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageTableView.swift; sourceTree = "<group>"; };
 		E5EF1130296DF4F700D8F799 /* NewMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageCell.swift; sourceTree = "<group>"; };
 		E5EF1132296DF59200D8F799 /* NewMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
+		E5EF1134296E049000D8F799 /* NewMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +74,7 @@
 			files = (
 				E500B61C29662FE600DCCB9F /* FirebaseAnalytics in Frameworks */,
 				E500B62229662FE600DCCB9F /* FirebaseStorage in Frameworks */,
+				E5EF1138296E148F00D8F799 /* Kingfisher in Frameworks */,
 				E500B61E29662FE600DCCB9F /* FirebaseAuth in Frameworks */,
 				E500B62029662FE600DCCB9F /* FirebaseFirestore in Frameworks */,
 				E5EF1118296B405E00D8F799 /* JGProgressHUD in Frameworks */,
@@ -315,6 +319,7 @@
 		E5EF112C296DF47A00D8F799 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E5EF1134296E049000D8F799 /* NewMessageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -350,6 +355,7 @@
 				E500B62129662FE600DCCB9F /* FirebaseStorage */,
 				E5EF1117296B405E00D8F799 /* JGProgressHUD */,
 				E5EF111A296B4B9B00D8F799 /* IQKeyboardManagerSwift */,
+				E5EF1137296E148F00D8F799 /* Kingfisher */,
 			);
 			productName = ChitChat;
 			productReference = E50388FD2963528200B3773E /* ChitChat.app */;
@@ -383,6 +389,7 @@
 				E500B61A29662FE600DCCB9F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				E5EF1116296B405E00D8F799 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				E5EF1119296B4B9B00D8F799 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				E5EF1136296E148E00D8F799 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = E50388FE2963528200B3773E /* Products */;
 			projectDirPath = "";
@@ -422,6 +429,7 @@
 				E50389052963528200B3773E /* AuthViewController.swift in Sources */,
 				E578A20A29638FCA00BDB23B /* LoginView.swift in Sources */,
 				E56E456F2968AB5E00BD30C5 /* FirestoreKit.swift in Sources */,
+				E5EF1135296E049000D8F799 /* NewMessageViewModel.swift in Sources */,
 				E5109D2129674D6D008CB0B9 /* User.swift in Sources */,
 				E50389012963528200B3773E /* AppDelegate.swift in Sources */,
 				E56E45742968CED400BD30C5 /* TabBar.swift in Sources */,
@@ -666,6 +674,14 @@
 				minimumVersion = 6.5.0;
 			};
 		};
+		E5EF1136296E148E00D8F799 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -698,6 +714,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E5EF1119296B4B9B00D8F799 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		E5EF1137296E148F00D8F799 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5EF1136296E148E00D8F799 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
