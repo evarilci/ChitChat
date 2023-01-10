@@ -11,13 +11,19 @@ final class ChatView: UIView {
     
     
      var tableView = UITableView()
-     
+    var rowHeight : CGFloat? {
+        set {
+            tableView.rowHeight = newValue! / 10
+        }
+        get {
+            tableView.rowHeight
+        }
+    }
      
     init() {
         super.init(frame: .zero)
         setTableViewConstraints()
         tableView.register(ChatTableViewCell.self, forCellReuseIdentifier: K.chatCellIdentifier)
-        tableView.rowHeight = UIScreen.main.bounds.height / 10
     }
      
      required init?(coder: NSCoder) {
@@ -29,7 +35,7 @@ final class ChatView: UIView {
          tableView.delegate = Delegate
          tableView.dataSource = DataSource
      }
-     
+    
      func setTableViewConstraints() {
          addSubview(tableView)
          tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -38,13 +44,7 @@ final class ChatView: UIView {
             tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-         
-         
          ])
      }
-    
-
-
-
 }
 

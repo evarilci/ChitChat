@@ -25,4 +25,16 @@ extension UIViewController {
         showingHud ? progressHud.show(in: view, animated: true) : progressHud.dismiss(animated: true)
     }
     
+    func screen() -> UIScreen? {
+        var parent = self.parent
+        var lastParent = parent
+        
+        while parent != nil {
+          lastParent = parent
+          parent = parent!.parent
+        }
+        
+        return lastParent?.view.window?.windowScene?.screen
+      }
+    
 }

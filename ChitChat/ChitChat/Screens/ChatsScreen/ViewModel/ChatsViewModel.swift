@@ -45,6 +45,9 @@ final class ChatsViewModel : ChatsViewModelProtocol {
         FirebaseStorage.StorageMetadata()
     }
     
+    func fetchUsers() {
+        
+    }
     func fetchProfile() {
         db.collection(K.firestore.userCollection).addSnapshotListener { snapshot, error in
             if let e = error {
@@ -60,7 +63,6 @@ final class ChatsViewModel : ChatsViewModelProtocol {
                                 self.delegate?.profilePhotoFetchFailed(error!)
                             } else {
                                 self?.image = UIImage(data: data!)
-                                
                             }
                         }
                         downloadTask.resume()
@@ -68,8 +70,5 @@ final class ChatsViewModel : ChatsViewModelProtocol {
                 }
             }
         }
-        
-       
-        
     }
 }

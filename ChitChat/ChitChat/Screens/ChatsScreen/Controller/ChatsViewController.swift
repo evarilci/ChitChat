@@ -14,6 +14,7 @@ final class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = mainView
+        mainView.rowHeight = self.screen()?.bounds.height
         viewModel.delegate = self
         viewModel.fetchProfile()
         mainView.setTableViewDelegates(delegate: self, datasource: self)
@@ -23,8 +24,6 @@ final class ChatViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       
-      
     }
     
     private func configureBarButton(){
@@ -47,6 +46,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.chatCellIdentifier, for: indexPath) as! ChatTableViewCell
         cell.name = "Eymen Varilci"
         cell.message = "This is a really long dummy message that i wrote to show you how it looks like in the actual device or simulator."
+        cell.profileImageRadius = self.screen()?.bounds.height
         //cell.image = viewModel.image
         return cell
     }

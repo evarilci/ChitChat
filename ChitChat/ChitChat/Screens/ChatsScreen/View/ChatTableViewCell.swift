@@ -38,6 +38,15 @@ class ChatTableViewCell: UITableViewCell {
         }
     }
     
+    var profileImageRadius : CGFloat? {
+        set {
+            profileImage.layer.cornerRadius = ((newValue! / 10) - 8) / 2
+        }
+        get {
+            profileImage.layer.cornerRadius
+        }
+    }
+    
 // MARK: VIEWS
     private lazy var profileImage : UIImageView = {
         let view = UIImageView()
@@ -74,9 +83,7 @@ class ChatTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureLayout()
-        profileImage.layer.cornerRadius = ((UIScreen.main.bounds.height / 10) - 8) / 2
-        
-        
+
         
     }
     

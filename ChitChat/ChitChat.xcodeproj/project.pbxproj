@@ -153,6 +153,7 @@
 		E578A1F9296354EB00BDB23B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				E5EF112A296DF1C000D8F799 /* NewMessageScreen */,
 				E56E45722968CEBA00BD30C5 /* ChatsScreen */,
 				E578A1FE2963552C00BDB23B /* LoginScreen */,
 				E5EF111F296B598800D8F799 /* Tabbar */,
@@ -284,6 +285,13 @@
 				E56E45732968CED400BD30C5 /* TabBar.swift */,
 			);
 			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		E5EF112A296DF1C000D8F799 /* NewMessageScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NewMessageScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
