@@ -27,6 +27,7 @@
 		E578A208296362EC00BDB23B /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578A207296362EC00BDB23B /* AuthTextField.swift */; };
 		E578A20A29638FCA00BDB23B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578A20929638FCA00BDB23B /* LoginView.swift */; };
 		E5D03D4E2964E33600DE6BAD /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D03D4D2964E33600DE6BAD /* UIButton+Extension.swift */; };
+		E5E2691029707C9800798263 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5E2690F29707C9800798263 /* Assets.xcassets */; };
 		E5EF1118296B405E00D8F799 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = E5EF1117296B405E00D8F799 /* JGProgressHUD */; };
 		E5EF111B296B4B9B00D8F799 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E5EF111A296B4B9B00D8F799 /* IQKeyboardManagerSwift */; };
 		E5EF1121296B5A1400D8F799 /* ChatsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EF1120296B5A1400D8F799 /* ChatsTableView.swift */; };
@@ -58,6 +59,7 @@
 		E578A207296362EC00BDB23B /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		E578A20929638FCA00BDB23B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E5D03D4D2964E33600DE6BAD /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		E5E2690F29707C9800798263 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5EF1120296B5A1400D8F799 /* ChatsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableView.swift; sourceTree = "<group>"; };
 		E5EF1122296B5AB300D8F799 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		E5EF1128296C8E0000D8F799 /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				E578A1F8296354E100BDB23B /* App */,
+				E5E2691129707CA400798263 /* Assets */,
 				E578A1F9296354EB00BDB23B /* Screens */,
 			);
 			path = ChitChat;
@@ -154,7 +157,6 @@
 				E578A203296357EA00BDB23B /* Extensions */,
 				E578A1FD2963551500BDB23B /* Delegates */,
 				E578A1FC2963550C00BDB23B /* Base */,
-				E578A1FB2963550300BDB23B /* Assets */,
 				E578A1FA296354F800BDB23B /* Plists */,
 			);
 			path = App;
@@ -178,13 +180,6 @@
 				E503890E2963528600B3773E /* Info.plist */,
 			);
 			path = Plists;
-			sourceTree = "<group>";
-		};
-		E578A1FB2963550300BDB23B /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Assets;
 			sourceTree = "<group>";
 		};
 		E578A1FC2963550C00BDB23B /* Base */ = {
@@ -262,6 +257,14 @@
 				E578A207296362EC00BDB23B /* AuthTextField.swift */,
 			);
 			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		E5E2691129707CA400798263 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E5E2690F29707C9800798263 /* Assets.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		E5EF111C296B596400D8F799 /* Controller */ = {
@@ -406,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E503890D2963528600B3773E /* LaunchScreen.storyboard in Resources */,
+				E5E2691029707C9800798263 /* Assets.xcassets in Resources */,
 				E500B61929662EF700DCCB9F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
